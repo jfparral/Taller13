@@ -4,9 +4,9 @@
 #include <pthread.h>
 #include <semaphore.h>
 
-#define NOTSHARED 0
-#define N 16
-#define NUM_ITEMS 20
+#define NOTSHARED 0 //????
+#define N 16  //tamaño de la cola
+#define NUM_ITEMS 20 //numeor de item
 
 void *productor(void *);
 void *consumidor(void *);
@@ -14,7 +14,7 @@ void yield();
 
 //la estructura compartida
 struct buffer_sync_s {
-        int buffer[N+1];
+        int buffer[N+1];// dejarlo como puntero
         int pr,pw;
         pthread_mutex_t mutex;
         sem_t vacios;
